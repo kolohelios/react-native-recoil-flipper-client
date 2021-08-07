@@ -1,13 +1,12 @@
 # Ignore source code
 **/*.ts
 
-# ------------- Defaults ------------- #
-
 # gitHub actions
 .github
 
-# eslint
+# eslint/prettier
 .eslintrc
+.prettierrc.js
 
 # typescript
 tsconfig.json
@@ -128,8 +127,10 @@ dist
 .vscode-test
 
 # yarn v2
-
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
 .pnp.*
+
+# Jest
+jest.config.js

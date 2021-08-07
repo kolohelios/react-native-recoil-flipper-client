@@ -10,6 +10,13 @@
 * React Native
 * Recoil
 
+## Usage
+
+Add this client to your React Native project by mounting it within your App JSX tree anywhere, but ideally immediately inside RecoilRoot.
+## Development
+
+...
+
 ## Todo
 
 - [ ] add supported Recoil version to README requires section
