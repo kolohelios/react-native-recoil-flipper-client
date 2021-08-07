@@ -1,4 +1,4 @@
-# bump the version when a PR is merged in to master - note that it uses the commit message to determine the 
+# bump the version when a PR is merged in to main - note that it uses the commit message to determine the 
 # https://github.com/phips28/gh-action-bump-version
 
 name: 'Bump Version'
@@ -6,11 +6,11 @@ name: 'Bump Version'
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
 
 jobs:
   bump-version:
-    name: 'Bump Version on master'
+    name: 'Bump Version on main'
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,7 @@ jobs:
           node-version: 14.x
       - name: 'Automated Version Bump'
         id: version-bump
-        uses: 'phips28/gh-action-bump-version@master'
+        uses: 'phips28/gh-action-bump-version@main'
         with:
           tag-prefix: 'v'
         env:
