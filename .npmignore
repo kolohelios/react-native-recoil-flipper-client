@@ -1,11 +1,12 @@
 # Ignore source code
 **/*.ts
+**/*.tsx
 
 # gitHub actions
 .github
 
 # eslint/prettier
-.eslintrc
+.eslintrc.js
 .prettierrc.js
 
 # typescript
