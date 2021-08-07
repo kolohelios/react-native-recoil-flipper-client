@@ -26,7 +26,7 @@ jobs:
           node-version: 14.x
       - name: 'Automated Version Bump'
         id: version-bump
-        uses: 'phips28/gh-action-bump-version'
+        uses: 'phips28/gh-action-bump-version@master'
         with:
           tag-prefix: 'v'
         env:
