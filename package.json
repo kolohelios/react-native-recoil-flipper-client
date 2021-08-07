@@ -4,8 +4,8 @@
   "description": "A Flipper client for React Native meant to provide Recoil state information to a Flipper desktop client.",
   "main": "index.js",
   "scripts": {
-    "ci": "npx tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/kolohelios/react-native-recoil-flipper-client#readme",
   "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.4",
     "typescript": "^4.3.5"
   }
 }
