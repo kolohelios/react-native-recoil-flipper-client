@@ -10,6 +10,10 @@
 * React Native
 * Recoil
 
+## Installation
+
+Make sure you install `react-native-flipper` as well as this client.
+
 ## Usage
 
 Add this client to your React Native project by mounting it within your App JSX tree anywhere, but ideally immediately inside RecoilRoot.

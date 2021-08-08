@@ -3,6 +3,7 @@
   "version": "0.0.2-alpha.4",
   "description": "A Flipper client for React Native meant to provide Recoil state information to a Flipper desktop client.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "npx tsc --declaration",
     "lint": "eslint",
@@ -39,5 +40,8 @@
     "react-native": "^0.64.2",
     "react-native-flipper": "^0.102.0",
     "recoil": "^0.3.1"
+  },
+  "peerDependencies": {
+    "react-native-flipper": "^0.102.0"
   }
 }
