@@ -1,6 +1,7 @@
-# Ignore source code
+# Ignore source code (but don't ignore TypeScript declaration files)
 **/*.ts
 **/*.tsx
+!*.d.ts
 
 # gitHub actions
 .github
@@ -135,3 +136,4 @@ dist
 
 # Jest
 jest.config.js
+__mocks__/
