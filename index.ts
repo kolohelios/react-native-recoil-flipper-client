@@ -8,7 +8,7 @@ export const RecoilFlipperClient = () => {
 	useEffect(() => {
 		addPlugin({
 			getId() {
-				return 'MyFlipperPlugin';
+				return 'recoil-state';
 			},
 			onConnect(connection) {
 				console.log({ connection });
