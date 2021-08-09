@@ -18,7 +18,7 @@ export const RecoilFlipperClient = () => {
 				console.debug('Flipper: connected');
 				setConnectionReference(connection);
 
-				connection.send('apiVersion', API_VERSION);
+				connection.send('apiVersion', { apiVersion: API_VERSION });
 			},
 			onDisconnect() {
 				console.debug('Flipper: disconnected');
