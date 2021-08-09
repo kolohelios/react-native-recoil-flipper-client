@@ -1,9 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilSnapshot } from 'recoil';
-import { addPlugin } from 'react-native-flipper';
+import { addPlugin, Flipper } from 'react-native-flipper';
+
+const API_VERSION = 0;
 
 export const RecoilFlipperClient = () => {
 	const snapshot = useRecoilSnapshot();
+	const [connectionReference, setConnectionReference] =
+		useState<Flipper.FlipperConnection | null>(null);
 
 	useEffect(() => {
 		addPlugin({
@@ -11,20 +15,13 @@ export const RecoilFlipperClient = () => {
 				return 'recoil-state';
 			},
 			onConnect(connection) {
-				console.log({ connection });
-				// Incoming data from desktop client
-				connection.receive('getData', (data, responder) => {
-					console.log('Incoming data', data);
-					// Respond with some data
-					responder.success({
-						ack: true,
-					});
-				});
-				// Outgoing data to be sent to the desktop client
-				connection.send('newRow', { message: 'Hello' });
+				console.debug('Flipper: connected');
+				setConnectionReference(connection);
+
+				connection.send('apiVersion', API_VERSION);
 			},
 			onDisconnect() {
-				console.log('disconnected');
+				console.debug('Flipper: disconnected');
 			},
 			runInBackground() {
 				return false;
@@ -33,10 +30,15 @@ export const RecoilFlipperClient = () => {
 	}, []);
 
 	useEffect(() => {
-		console.debug('The following atoms were modified:');
 		for (const node of snapshot.getNodes_UNSTABLE({ isModified: true })) {
-			console.debug(node.key, snapshot.getLoadable(node));
+			// TODO: review typing for Flipper.FlipperConnection because it does have a connected property
+			(connectionReference as any)?.connected &&
+				connectionReference?.send('newRow', {
+					key: node.key,
+					payload: snapshot.getLoadable(node),
+				});
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [snapshot]);
 
 	// Return null because we don't want to render any UI; this is a state-listening component only
