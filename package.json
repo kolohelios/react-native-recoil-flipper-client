@@ -1,6 +1,6 @@
 {
   "name": "react-native-recoil-flipper-client",
-  "version": "0.0.2-alpha.9",
+  "version": "0.0.3",
   "description": "A Flipper client for React Native meant to provide Recoil state information to a Flipper desktop client.",
   "main": "index.js",
   "types": "index.d.ts",
