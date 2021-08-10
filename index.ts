@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRecoilSnapshot } from 'recoil';
 import { addPlugin, Flipper } from 'react-native-flipper';
 
-const API_VERSION = 0;
+const API_VERSION = 1;
 
 export const RecoilFlipperClient = () => {
 	const snapshot = useRecoilSnapshot();
